@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/styles.min.css">
+    </head>
+    <body>
+      <h1>Product Details</h1>
+        <div class="container" id="container">
+
+          <div id=product>
+        <!-- Add a product component with image of your choice -->
+
+          </div>
+        <ul id="view"></ul>
+        <br>
+        <br>
+
+        <!-- <select id="facets">
+          <option value="Size">Size</option>
+          <option value="Color">Color</option>
+          <option value="Quantity">Quantity</option>
+        </select> -->
+      </div>
+      <form>
+        <div id="size-selection">
+            Select your size:<br>
+            <input class="selection" type="radio" name="size" value="2S" checked> Small
+            <br>
+            <input class="selection" type="radio" name="size" value="3M"> Medium
+            <br>
+            <input class="selection" type="radio" name="size" value="4L"> large
+        </div>
+
+        <div id="color-selection" >
+          Choose your color:<br>
+            <input class="selection" type="radio" name="color" value="black" checked> Black
+            <br>
+            <input class="selection" type="radio" name="color" value="peach"> Red
+            <br>
+            <input class="selection" type="radio" name="color" value="red"> Peach
+        </div>
+
+        <div id="quantity-selection" >
+          Quantity
+          <input class="selection" type="number" name="quantity" min="1" max="5"<br>
+        </div>
+
+        <input type="submit" id="next" value="next"></input>
+      </form>
+
+        <div id=shipaddress hidden>
+          <h2>
+            Shipping Address
+            </h2>
+          <div>
+          <label>AddressOne</label>
+          <input type="text" required="required" name="address1" id="addOne" autofocus/>
+        </div>
+        <div>
+          <label>AddressTwo</label>
+          <input type="text" name="address2" id="addTwo" autofocus/>
+        </div>
+        <div>
+          <label>City</label>
+          <input type="text" name="city" id="city" autofocus/>
+        </div>
+        <div>
+          <label>State</label>
+          <input type="text" name="state" id="state" autofocus/>
+        </div>
+        <div>
+          <label>ZipCode</label>
+          <input type="number" name="zipcode" id="zipcode" autofocus/>
+        </div>
+        <div>
+          <button type="button" id="finish">Finish</button>
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <div id=analyticsinfo hidden>
+        Selected product:
+        <br> {Product information}
+        <br>
+        <br> Will be shipped to :
+        <br> {Shipping information}
+      </div>
+
+      <script src="js/lib/jquery-min.js"></script>
+      <script src="js/lib/underscore-min.js"></script>
+      <script src="js/lib/backbone-min.js"></script>
+      <script src="js/main.js"></script>
+    </body>
+</html>
