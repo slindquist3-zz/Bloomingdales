@@ -1,20 +1,5 @@
 
 
-// $('#facets').on('change', function() {
-//
-// 	// $('#size-selection').hide();
-// 	// $('#color-selection').hide();
-// 	// $('#quantity-selection').hide();
-//
-//   if (this.value == 'Size') {
-//     $('#size-selection').show();
-//   } else if (this.value == 'Color') {
-//     $('#color-selection').show();
-//   } else {
-//     $('#quantity-selection').show();
-//   }
-// })
-
 $('#next').on('click', function(e) {
 	e.preventDefault()
   $('#shipaddress').show();
@@ -23,6 +8,21 @@ $('#next').on('click', function(e) {
 $('#finish').on('click', function() {
   $('#analyticsinfo').show();
   // Display the information picked up above.
+})
+
+$(".size-selection").on("change", function() {
+	product.set("size", "make dynamic");
+	console.log(product.attributes)
+})
+
+$(".color-selection").on("change", function() {
+	product.set("color", "make dynamic")
+	console.log(product.attributes)
+})
+
+$(".quantity-selection").on("change", function() {
+	product.set("quantity", "make dynamic")
+	console.log(product.attributes)
 })
 
 // ---------  MODELS -------------
@@ -48,7 +48,8 @@ var Product = Backbone.Model.extend({
 	 }
  })
 
- var userinfo = new Userinfo()
+ var userinfo = new Userinfo({
+ })
 
  // ---------  VIEWS -------------
 
@@ -67,7 +68,7 @@ var Product = Backbone.Model.extend({
 
 //
 
- var UserinfoView = Backbone.View.extend()
+ var UserinfoView = Backbone.View.extend({ el: "#selected-product", model: product})
 
   //create product model with size, color, quantity, price//2levels
   //create product collection

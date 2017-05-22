@@ -16,40 +16,27 @@
         <!-- Add a product component with image of your choice -->
 
           </div>
-        <ul id="view"></ul>
         <br>
         <br>
-
-        <!-- <select id="facets">
-          <option value="Size">Size</option>
-          <option value="Color">Color</option>
-          <option value="Quantity">Quantity</option>
-        </select> -->
       </div>
       <form>
-        <div id="size-selection">
-            Select your size:<br>
-            <input class="selection" type="radio" name="size" value="2S" checked> Small
+          Select your size:<br>
+            <input class="size-selection" type="radio" name="size" value="2S" checked> Small</input>
             <br>
-            <input class="selection" type="radio" name="size" value="3M"> Medium
+            <input class="size-selection" type="radio" name="size" value="3M"> Medium</input>
             <br>
-            <input class="selection" type="radio" name="size" value="4L"> large
-        </div>
-
-        <div id="color-selection" >
+            <input class="size-selection" type="radio" name="size" value="4L"> Large</input>
+            <br>
           Choose your color:<br>
-            <input class="selection" type="radio" name="color" value="black" checked> Black
+            <input class="color-selection" type="radio" name="color" value="black" checked> Black</input>
             <br>
-            <input class="selection" type="radio" name="color" value="peach"> Red
+            <input class="color-selection" type="radio" name="color" value="peach"> Red</input>
             <br>
-            <input class="selection" type="radio" name="color" value="red"> Peach
-        </div>
-
-        <div id="quantity-selection" >
+            <input class="color-selection" type="radio" name="color" value="red"> Peach</input>
+            <br>
           Quantity
-          <input class="selection" type="number" name="quantity" min="1" max="5"<br>
-        </div>
-
+            <input class="quantity-selection" type="number" name="quantity" value="1" min="1" max="5"<br>
+            <br>
         <input type="submit" id="next" value="next"></input>
       </form>
 
@@ -86,6 +73,7 @@
       <br>
       <div id=analyticsinfo hidden>
         Selected product:
+        <div id="selected-product"></div>
         <br> {Product information}
         <br>
         <br> Will be shipped to :
