@@ -12,27 +12,27 @@
       <h1>Product Details</h1>
         <div class="container" id="container">
 
-          <div id=product>
+          <div class=product id="initial">
         <!-- Add a product component with image of your choice -->
 
           </div>
         <br>
         <br>
       </div>
-      <form>
+      <form id="selections">
           Select your size:<br>
-            <input class="size-selection" type="radio" name="size" value="2S" checked> Small</input>
+            <input class="size-selection" type="radio" name="size" value="2S"> Small</input>
             <br>
             <input class="size-selection" type="radio" name="size" value="3M"> Medium</input>
             <br>
             <input class="size-selection" type="radio" name="size" value="4L"> Large</input>
             <br>
           Choose your color:<br>
-            <input class="color-selection" type="radio" name="color" value="black" checked> Black</input>
+            <input class="color-selection" type="radio" name="color" value="Black"> Black</input>
             <br>
-            <input class="color-selection" type="radio" name="color" value="peach"> Red</input>
+            <input class="color-selection" type="radio" name="color" value="Red"> Red</input>
             <br>
-            <input class="color-selection" type="radio" name="color" value="red"> Peach</input>
+            <input class="color-selection" type="radio" name="color" value="Peach"> Peach</input>
             <br>
           Quantity
             <input class="quantity-selection" type="number" name="quantity" value="1" min="1" max="5"<br>
@@ -65,20 +65,19 @@
           <input type="number" name="zipcode" id="zipcode" autofocus/>
         </div>
         <div>
+          <button type="button" id="back1">Back</button>
           <button type="button" id="finish">Finish</button>
         </div>
       </div>
 
       <br>
       <br>
-      <div id=analyticsinfo hidden>
+      <div id="analyticsinfo" hidden>
         Review Purchase
-        <div id="selected-product"></div>
-        <br> {Product information}
+        <div class="product" id="selected"></div>
         <br>
         <br> Will be shipped to :
-        <!-- This is where the views will go ^^ product and then userinfo below-->
-        <br> {Shipping information}
+        <div id="shipping-info"></div>
       </div>
 
       <script src="js/lib/jquery-min.js"></script>
