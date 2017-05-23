@@ -6,16 +6,21 @@ body {
 		font-size: 12px;
 	}
 
-	img {
-		width: 100px;
+	.dress {
+		width: 300px;
+	}
+
+	#logo {
+	height: 100px;
 	}
 
 	input[type="text"] {
 		display: block;
 	}
-	
+
 	input[name="zipcode"] {
 		display: block;
 	}
+
 
 }

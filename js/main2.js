@@ -76,6 +76,11 @@ $(".size-selection").on("change", function() {
 })
 
 $(".color-selection").on("change", function() {
+	product.set({this.name: this.value,
+								});
+})
+
+$(".color-selection").on("change", function() {
 	product.set(this.name, this.value)
 	if (product.get("color") === "Black") {
 		product.set("image", "<img class='dress' src='https://images.bloomingdales.com/is/image/BLM/products/2/optimized/9497962_fpx.tif?wid=800&qlt=90,0&layer=comp&op_sharpen=0&resMode=sharp2&op_usm=0.7,1.0,0.5,0&fmt=jpeg'>");
@@ -128,12 +133,17 @@ var Product = Backbone.Model.extend({
  var product = new Product({
 	 brand: "Sunset & Spring",
 	 name: "High/Low Maxi Dress",
-	 image: "<img class='dress' src='https://images.bloomingdales.com/is/image/BLM/products/2/optimized/9497962_fpx.tif?wid=800&qlt=90,0&layer=comp&op_sharpen=0&resMode=sharp2&op_usm=0.7,1.0,0.5,0&fmt=jpeg'>",
 	 //this image value should actually point to an array
 	 price: {
 		 original: 195,
 		 sale: 145
-	 }
+	 },
+	 color:[
+		 {black: "https://images.bloomingdales.com/is/image/BLM/products/2/optimized/9497962_fpx.tif?wid=800&qlt=90,0&layer=comp&op_sharpen=0&resMode=sharp2&op_usm=0.7,1.0,0.5,0&fmt=jpeg"},
+		 {coral: "https://images.bloomingdales.com/is/image/BLM/products/3/optimized/9497963_fpx.tif?wid=800&qlt=90,0&layer=comp&op_sharpen=0&resMode=sharp2&op_usm=0.7,1.0,0.5,0&fmt=jpeg"},
+		 {blue: "https://images.bloomingdales.com/is/image/BLM/products/6/optimized/9497966_fpx.tif?wid=800&qlt=90,0&layer=comp&op_sharpen=0&resMode=sharp2&op_usm=0.7,1.0,0.5,0&fmt=jpeg"}
+	 ],
+	 image: Object.values(product.attributes.color[0])[0]
  });
 
  var Userinfo = Backbone.Model.extend({
@@ -158,7 +168,7 @@ var Product = Backbone.Model.extend({
 		 		"<p>" + this.model.get("name") + "</p>" +
 				"<p>" + "Original Price: $" + this.model.get("price").original + "</p>" +
 				"<p>" + "Sale: $" + this.model.get("price").sale + "</p>" +
-				"<p>" + this.model.get("image") + "</p>")
+				"<p> + this.model.get("image") + </p>")
 		 return this;
 	 }
  });

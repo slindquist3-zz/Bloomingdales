@@ -1,77 +1,74 @@
 <!DOCTYPE html>
 <html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Product Details</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/styles.min.css">
-    </head>
-    <body>
-      <h1>Product Details</h1>
-        <div class="container" id="container">
-          <div id="product">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Product Details</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <img id="logo" src="images/bloomingdales-logo.png">
         </div>
       </div>
-      <form id="selections">
-        Size:<br>
-        <input class="size-selection" type="radio" name="size" value="2S" checked> Small</input>
-        <br>
-        <input class="size-selection" type="radio" name="size" value="3M"> Medium</input>
-        <br>
-        <input class="size-selection" type="radio" name="size" value="4L"> Large</input>
-        <br>
-        Color:<br>
-        <input class="color-selection" type="radio" name="color" value="Black" checked> Black</input>
-        <br>
-        <input class="color-selection" type="radio" name="color" value="Coral"> Coral</input>
-        <br>
-        <input class="color-selection" type="radio" name="color" value="Blue"> Blue</input>
-        <br>
-        Quantity
-        <input class="quantity-selection" type="number" name="quantity" value="1" min="1" max="5"<br>
-        <br>
-        <input type="submit" id="next" value="next"></input>
-      </form>
-      <div id=shipaddress hidden>
-        <h2>Shipping Address</h2>
-        <div>
-          <label>Address Line 1</label>
-          <input type="text" required="required" name="address1" id="addOne" autofocus/>
+      <div class="row">
+        <div class="col-lg-6">
+          <h1>Product Details</h1>
+            <div class="container" id="container">
+              <div id="product-details">
+              </div>
+            </div>
         </div>
-        <div>
-          <label>Address Line 2</label>
-          <input type="text" name="address2" id="addTwo" autofocus/>
-        </div>
-        <div>
-          <label>City</label>
-          <input type="text" name="city" id="city" autofocus/>
-        </div>
-        <div>
-          <label>State</label>
-          <input type="text" name="state" id="state" autofocus/>
-        </div>
-        <div>
-          <label>ZipCode</label>
-          <input type="number" name="zipcode" id="zipcode" autofocus/>
-        </div>
-        <div>
-          <button type="button" id="back1">Back</button>
-          <button type="button" id="finish">Finish</button>
+        <div class="col-lg-6">
+          <div id="selections">
+            <h1>Your Order</h1>
+            <label>Size:</label>
+            <input class="size-selection" type="radio" name="size" value="2S" checked> Small</input>
+            <input class="size-selection" type="radio" name="size" value="3M"> Medium</input>
+            <input class="size-selection" type="radio" name="size" value="4L"> Large</input>
+            <br>
+            <label>Color:</label>
+            <input class="color-selection" type="radio" name="color" value="Black" checked> Black</input>
+            <input class="color-selection" type="radio" name="color" value="Coral"> Coral</input>
+            <input class="color-selection" type="radio" name="color" value="Blue"> Blue</input>
+            <br>
+            <label>Quantity</label>
+            <input class="quantity-selection" type="number" name="quantity" value="1" min="1" max="5"<br>
+            <input type="submit" id="next" value="next"></input>
+          </div>
+            <div id="shipaddress" hidden>
+              <h1>Shipping Address</h1>
+              <label>Address Line 1</label>
+              <input type="text" required="required" name="address1" id="addOne" autofocus/>
+              <label>Address Line 2</label>
+              <input type="text" name="address2" id="addTwo" autofocus/>
+              <label>City</label>
+              <input type="text" name="city" id="city" autofocus/>
+              <label>State</label>
+              <input type="text" name="state" id="state" autofocus/>
+              <label>ZipCode</label>
+              <input type="number" name="zipcode" id="zipcode" autofocus/>
+              <button type="button" id="back">Back</button>
+              <button type="button" id="finish">Finish</button>
+          </div>
+          <div id="analyticsinfo" hidden>
+              <h1>Review Purchase</h1>
+              <p> Shipping Address</p>
+              <div id="shipping-info"></div>
+              <button id="edit">Edit Shipping</button>
+              <button id="checkout">Proceed to Checkout</button>
+          </div>
         </div>
       </div>
-      <div id="analyticsinfo" hidden>
-        <h2>Review Purchase</h2>
-        <p> Shipping Address</p>
-        <div id="shipping-info"></div>
-      </div>
-
-      <script src="js/lib/jquery-min.js"></script>
-      <script src="js/lib/underscore-min.js"></script>
-      <script src="js/lib/backbone-min.js"></script>
-      <script src="js/main.js"></script>
-    </body>
+    </div>
+    <script src="js/lib/jquery-min.js"></script>
+    <script src="js/lib/underscore-min.js"></script>
+    <script src="js/lib/backbone-min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
