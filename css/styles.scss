@@ -10,4 +10,12 @@ body {
 		width: 100px;
 	}
 
+	input[type="text"] {
+		display: block;
+	}
+
+	input[name="zipcode"] {
+		display: block;
+	}
+
 }

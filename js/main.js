@@ -1,28 +1,32 @@
 function total() {
 	var amount = parseInt(product.get("price").sale.slice(1));
-	var quantity = parseInt(product.get("quantity"))
-	return amount * quantity
+	var quantity = parseInt(product.get("quantity"));
+	return amount * quantity;
 }
 
 function savings() {
 	var originalPrice = parseInt(product.get("price").original.slice(1));
-	return total() - originalPrice
+	var quantity = parseInt(product.get("quantity"));
+	var wouldBePrice = originalPrice * quantity;
+	return wouldBePrice - total();
 }
 
+//I can refactor the above two functions into one
+
 $('#next').on('click', function(e) {
-	e.preventDefault()
-	$("#selections").hide()
+	e.preventDefault();
+	$("#selections").hide();
   $('#shipaddress').show();
 
-	$("#product").append("<p> Size: " + product.get("size") + "</p>")
-	$("#product").append("<p> Color: " + product.get("color") + "</p>")
-	$("#product").append("<p> Quantity: " + product.get("quantity") + "</p>")
+	$("#product").append("<p> Size: " + product.get("size") + "</p>");
+	$("#product").append("<p> Color: " + product.get("color") + "</p>");
+	$("#product").append("<p> Quantity: " + product.get("quantity") + "</p>");
 
 })
 
 $("#back1").on('click', function() {
-	$("#shipaddress").hide()
-	$("#selections").show()
+	$("#shipaddress").hide();
+	$("#selections").show();
 })
 
 $('#finish').on('click', function() {
@@ -31,37 +35,38 @@ $('#finish').on('click', function() {
 		city: $("#city").val(),
 		state: $("#state").val(),
 		zipcode: $("#zipcode").val()
-	})
+	});
 	console.log(userinfo.attributes)
 	$("#shipaddress").hide();
   $('#analyticsinfo').show();
-	$('#analyticsinfo').append("<p> Savings: $" + savings() + "</p>");
 	$('#analyticsinfo').append("<p> Total: $" + total() + "</p>");
+	$('#analyticsinfo').append("<p> Your Savings: $" + savings() + "</p>");
+
 
 
 })
 
 $(".size-selection").on("change", function() {
 	product.set(this.name, this.value);
-	console.log(product.attributes)
+	console.log(product.attributes);
 })
 
 $(".color-selection").on("change", function() {
 	product.set(this.name, this.value)
 	if (product.get("color") === "Black") {
-		product.set("image", "<img src='https://images.bloomingdales.com/is/image/BLM/products/2/optimized/9497962_fpx.tif?wid=800&qlt=90,0&layer=comp&op_sharpen=0&resMode=sharp2&op_usm=0.7,1.0,0.5,0&fmt=jpeg'>")
+		product.set("image", "<img src='https://images.bloomingdales.com/is/image/BLM/products/2/optimized/9497962_fpx.tif?wid=800&qlt=90,0&layer=comp&op_sharpen=0&resMode=sharp2&op_usm=0.7,1.0,0.5,0&fmt=jpeg'>");
 	} else if (product.get("color")  === "Coral") {
-		product.set("image", "<img src='https://images.bloomingdales.com/is/image/BLM/products/3/optimized/9497963_fpx.tif?wid=800&qlt=90,0&layer=comp&op_sharpen=0&resMode=sharp2&op_usm=0.7,1.0,0.5,0&fmt=jpeg'>")
+		product.set("image", "<img src='https://images.bloomingdales.com/is/image/BLM/products/3/optimized/9497963_fpx.tif?wid=800&qlt=90,0&layer=comp&op_sharpen=0&resMode=sharp2&op_usm=0.7,1.0,0.5,0&fmt=jpeg'>");
 	} else if (product.get("color")  === "Blue") {
-		product.set("image", "<img src='https://images.bloomingdales.com/is/image/BLM/products/6/optimized/9497966_fpx.tif?wid=800&qlt=90,0&layer=comp&op_sharpen=0&resMode=sharp2&op_usm=0.7,1.0,0.5,0&fmt=jpeg'>")
+		product.set("image", "<img src='https://images.bloomingdales.com/is/image/BLM/products/6/optimized/9497966_fpx.tif?wid=800&qlt=90,0&layer=comp&op_sharpen=0&resMode=sharp2&op_usm=0.7,1.0,0.5,0&fmt=jpeg'>");
 	}
-	console.log(product.attributes)
-})
+	console.log(product.attributes);
+});
 
 $(".quantity-selection").on("change", function() {
-	product.set(this.name, this.value)
-	console.log(product.attributes)
-})
+	product.set(this.name, this.value);
+	console.log(product.attributes);
+});
 
 // ---------  MODELS -------------
 
@@ -76,7 +81,7 @@ var Product = Backbone.Model.extend({
   	initialize: function() {
     	console.log("A new product has been created")
     }
-  })
+  });
 
  var product = new Product({
 	 brand: "Sunset & Spring",
@@ -86,17 +91,16 @@ var Product = Backbone.Model.extend({
 		 original: "$195",
 		 sale: "$145"
 	 }
-
- })
+ });
 
  var Userinfo = Backbone.Model.extend({
 	 initialize: function() {
 		 console.log("User has info!")
 	 }
- })
+ });
 
  var userinfo = new Userinfo({
- })
+ });
 
  // ---------  VIEWS -------------
 
@@ -116,10 +120,10 @@ var Product = Backbone.Model.extend({
 	//values as undefined before they are set?
 		 return this;
 	 }
- })
+ });
 
- var productView = new ProductView({ el: "#product", model: product})
- productView.render()
+ var productView = new ProductView({ el: "#product", model: product});
+ productView.render();
 
 
  var UserinfoView = Backbone.View.extend({
@@ -137,8 +141,8 @@ var Product = Backbone.Model.extend({
 	 }
  })
 
- var userinfoView = new UserinfoView({ el: "#shipping-info", model: userinfo})
- userinfoView.render()
+ var userinfoView = new UserinfoView({ el: "#shipping-info", model: userinfo});
+ userinfoView.render();
  //There should be some way to use one function to populate my models with their attributes, because to do each
  //	one individually will make my code heavy and not very dry.
 
