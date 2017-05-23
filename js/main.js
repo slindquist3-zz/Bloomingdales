@@ -1,4 +1,13 @@
+function total() {
+	var amount = parseInt(product.get("price").sale.slice(1));
+	var quantity = parseInt(product.get("quantity"))
+	return amount * quantity
+}
 
+function savings() {
+	var originalPrice = parseInt(product.get("price").original.slice(1));
+	return total() - originalPrice
+}
 
 $('#next').on('click', function(e) {
 	e.preventDefault()
@@ -7,6 +16,8 @@ $('#next').on('click', function(e) {
 
 	$("#product").append("<p> Size: " + product.get("size") + "</p>")
 	$("#product").append("<p> Color: " + product.get("color") + "</p>")
+	$("#product").append("<p> Quantity: " + product.get("quantity") + "</p>")
+
 })
 
 $("#back1").on('click', function() {
@@ -24,6 +35,10 @@ $('#finish').on('click', function() {
 	console.log(userinfo.attributes)
 	$("#shipaddress").hide();
   $('#analyticsinfo').show();
+	$('#analyticsinfo').append("<p> Savings: $" + savings() + "</p>");
+	$('#analyticsinfo').append("<p> Total: $" + total() + "</p>");
+
+
 })
 
 $(".size-selection").on("change", function() {
@@ -131,7 +146,6 @@ var Product = Backbone.Model.extend({
 //  which will be populated only with this one model, but it will show that it could have others
 
 //That Product collection view will render the modelViews
-
 
   //create product collection
   //create product collection views
