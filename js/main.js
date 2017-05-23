@@ -4,6 +4,9 @@ $('#next').on('click', function(e) {
 	e.preventDefault()
 	$("#selections").hide()
   $('#shipaddress').show();
+
+	$("#product").append("<p> Size: " + product.get("size") + "</p>")
+	$("#product").append("<p> Color: " + product.get("color") + "</p>")
 })
 
 $("#back1").on('click', function() {
@@ -19,7 +22,6 @@ $('#finish').on('click', function() {
 		zipcode: $("#zipcode").val()
 	})
 	console.log(userinfo.attributes)
-	$("#initial").hide();
 	$("#shipaddress").hide();
   $('#analyticsinfo').show();
 })
@@ -31,6 +33,13 @@ $(".size-selection").on("change", function() {
 
 $(".color-selection").on("change", function() {
 	product.set(this.name, this.value)
+	if (product.get("color") === "Black") {
+		product.set("image", "<img src='https://images.bloomingdales.com/is/image/BLM/products/2/optimized/9497962_fpx.tif?wid=800&qlt=90,0&layer=comp&op_sharpen=0&resMode=sharp2&op_usm=0.7,1.0,0.5,0&fmt=jpeg'>")
+	} else if (product.get("color")  === "Coral") {
+		product.set("image", "<img src='https://images.bloomingdales.com/is/image/BLM/products/3/optimized/9497963_fpx.tif?wid=800&qlt=90,0&layer=comp&op_sharpen=0&resMode=sharp2&op_usm=0.7,1.0,0.5,0&fmt=jpeg'>")
+	} else if (product.get("color")  === "Blue") {
+		product.set("image", "<img src='https://images.bloomingdales.com/is/image/BLM/products/6/optimized/9497966_fpx.tif?wid=800&qlt=90,0&layer=comp&op_sharpen=0&resMode=sharp2&op_usm=0.7,1.0,0.5,0&fmt=jpeg'>")
+	}
 	console.log(product.attributes)
 })
 
@@ -55,13 +64,14 @@ var Product = Backbone.Model.extend({
   })
 
  var product = new Product({
-	 brand: "Bloomingdales",
-	 name: "Strappy-back dress",
-	 image: "<img src='https://images.bloomingdales.com/is/image/BLM/products/0/optimized/9390170_fpx.tif?wid=800&qlt=90,0&layer=comp&op_sharpen=0&resMode=sharp2&op_usm=0.7,1.0,0.5,0&fmt=jpeg'>",
+	 brand: "Sunset & Spring",
+	 name: "High/Low Maxi Dress",
+	 image: "<img src='https://images.bloomingdales.com/is/image/BLM/products/2/optimized/9497962_fpx.tif?wid=800&qlt=90,0&layer=comp&op_sharpen=0&resMode=sharp2&op_usm=0.7,1.0,0.5,0&fmt=jpeg'>",
 	 price: {
 		 original: "$195",
 		 sale: "$145"
 	 }
+
  })
 
  var Userinfo = Backbone.Model.extend({
@@ -93,10 +103,9 @@ var Product = Backbone.Model.extend({
 	 }
  })
 
- var initialProductView = new ProductView({ el: "#initial", model: product})
- initialProductView.render()
- var selectedProductView = new ProductView({ el: "#selected", model: product})
- selectedProductView.render()
+ var productView = new ProductView({ el: "#product", model: product})
+ productView.render()
+
 
  var UserinfoView = Backbone.View.extend({
 	 tagName: "div",
