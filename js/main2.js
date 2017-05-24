@@ -36,10 +36,6 @@ $('#next').on('click', function(e) {
 	e.preventDefault();
 	$("#selections").hide();
   $('#shipaddress').show();
-	// $("#product-details").append("<p> Size: " + selection.get("size") + "</p>");
-	// $("#product-details").append("<p> Color: " + selection.get("color") + "</p>");
-	// $("#product-details").append("<p> Quantity: " + selection.get("quantity") + "</p>");
-
 })
 
 $("#back").on('click', function() {
@@ -168,10 +164,10 @@ var Product = Backbone.Model.extend({
 	 },
 	 render: function() {
 		 this.$el.html(
-			 	"<p>" + this.model.get("brand") + "</p>" +
+			 	"<p id='brand'><strong>" + this.model.get("brand") + "</strong></p>" +
 		 		"<p>" + this.model.get("name") + "</p>" +
-				"<p><strike>" + "Original Price: $" + this.model.get("price").original + "</strike></p>" +
-				"<p>" + "Sale: $" + this.model.get("price").sale + "</p>")
+				"<p><strike>" + "REG. $" + this.model.get("price").original + "</strike></p>" +
+				"<p id='sale'>" + "SALE $" + this.model.get("price").sale + "</p>")
 		return this;
 	 }
  });
@@ -206,7 +202,7 @@ var Product = Backbone.Model.extend({
 	},
 	render: function() {
 		this.$el.html(
-			 "<img id='dress' src=" + this.model.get("image") + ">");
+			 "<img id='mainImage' class='views' src=" + this.model.get("image") + ">");
 		return this;
 	}
  })
