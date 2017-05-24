@@ -19,17 +19,17 @@
 
       <div class="row">
 
-        <div class="col-lg-6">
-          <h1>Product Details</h1>
-            <div class="container" id="container">
-              <div id="product-details">
-              </div>
-              <div id="image-view"></div>
-            </div>
+        <div class="col-lg-6 col-md-6 col-sm-8 col-xs-10">
+          <div class="views" id="image-view">
+          </div>
         </div>
 
-        <div class="col-lg-6">
-          <div id="selections">
+        <div class="col-lg-6 col-md-6 col-sm-8 col-xs-10">
+          <div id="selections" class="views">
+            <h1>Product Details</h1>
+
+            <div id="product-details">
+            </div>
             <h1>Your Order</h1>
             <label>Size:</label>
             <input class="size-selection" type="radio" name="size" value="2S" checked> Small</input>
@@ -46,7 +46,7 @@
             <input type="submit" id="next" value="next"></input>
           </div>
 
-            <div id="shipaddress" hidden>
+          <div id="shipaddress" class="views" hidden>
               <h1>Shipping Address</h1>
               <label>Address Line 1</label>
               <input type="text" required="required" name="address1" id="addOne" autofocus/>
@@ -61,10 +61,14 @@
               <button type="button" id="back">Back</button>
               <button type="button" id="finish">Finish</button>
           </div>
-          <div id="analyticsinfo" hidden>
-              <h1>Review Purchase</h1>
+          <div id="analyticsinfo" class="views" hidden>
+            <div id="review">
+              <div id="purchase">
+                <h1>Review Purchase</h1>
+              </div>
               <p> Shipping Address</p>
               <div id="shipping-info"></div>
+            </div>
               <button id="edit">Edit Shipping</button>
               <button id="checkout">Proceed to Checkout</button>
           </div>

@@ -1,18 +1,37 @@
 
+@import "partials/mixins";
+
 body {
-	padding: 40px;
 
 	p {
-		font-size: 12px;
+		font-size: 16px;
+
 	}
 
 	#dress {
-		width: 300px;
+		width: 400px;
+
+		@media only screen and (min-width: 320px) {
+			width: 200px;
+		}
+
+		@media only screen and (min-width: 480px) {
+			width: 300px;
+		}
+		@media only screen and (min-width: 680px) {
+			width: 380px;
+		}
+
+		@media only screen and (min-width: 960px) {
+			width: 400px;
+			right: auto;
+		}
+
 	}
 
+
 	#logo {
-	height: 100px;
-	right: 50%;
+		width: 400px;
 	}
 
 	input[type="text"] {
@@ -21,6 +40,13 @@ body {
 
 	input[name="zipcode"] {
 		display: block;
+	}
+
+	.views {
+		padding: 20px 50px 50px 50px;
+		border: black 2px solid;
+		border-radius: 10px;
+		margin-bottom: 35px;
 	}
 
 

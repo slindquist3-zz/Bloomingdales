@@ -36,9 +36,9 @@ $('#next').on('click', function(e) {
 	e.preventDefault();
 	$("#selections").hide();
   $('#shipaddress').show();
-	$("#product-details").append("<p> Size: " + selection.get("size") + "</p>");
-	$("#product-details").append("<p> Color: " + selection.get("color") + "</p>");
-	$("#product-details").append("<p> Quantity: " + selection.get("quantity") + "</p>");
+	// $("#product-details").append("<p> Size: " + selection.get("size") + "</p>");
+	// $("#product-details").append("<p> Color: " + selection.get("color") + "</p>");
+	// $("#product-details").append("<p> Quantity: " + selection.get("quantity") + "</p>");
 
 })
 
@@ -63,8 +63,8 @@ $('#finish').on('click', function() {
 	console.log(shipping.attributes)
 	$("#shipaddress").hide();
   $('#analyticsinfo').show();
-	$('#analyticsinfo').append("<p class='checkout'> Total: $" + total() + "</p>");
-	$('#analyticsinfo').append("<p class='checkout'> Your Savings: $" + savings(product) + "</p>");
+	$('#purchase').append("<p class='checkout'> Total: $" + total() + "</p>");
+	$('#purchase').append("<p class='checkout'> Your Savings: $" + savings(product) + "</p>");
 })
 
 $(".size-selection").on("change", function() {
@@ -170,7 +170,7 @@ var Product = Backbone.Model.extend({
 		 this.$el.html(
 			 	"<p>" + this.model.get("brand") + "</p>" +
 		 		"<p>" + this.model.get("name") + "</p>" +
-				"<p>" + "Original Price: $" + this.model.get("price").original + "</p>" +
+				"<p><strike>" + "Original Price: $" + this.model.get("price").original + "</strike></p>" +
 				"<p>" + "Sale: $" + this.model.get("price").sale + "</p>")
 		return this;
 	 }
