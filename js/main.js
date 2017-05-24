@@ -91,6 +91,19 @@ var Product = Backbone.Model.extend({
 				return "The sale price should be less than original.";
 			}
 		},
+		getSizeInput: function(array) {
+			var string = ""
+			var i = 0;
+			while (i < array.length) {
+				string += "<input class='size-selection' type='radio' name='size' value=" + array[i] + "> " + array[i] + "</input>" + " ";
+				i++;
+			}
+			debugger
+			return string;
+
+ 	// 	 for (var i = 0; i < array.length; i++) {
+ 	// 		 return "<input class='size-selection' type='radio' name='size' value=" + "" + array[i] + ""+ "> " + array[i] + "</input>"
+ 	},
   	initialize: function() {
     	console.log("A new product has been created")
     }
@@ -152,12 +165,15 @@ var Product = Backbone.Model.extend({
 	 initialize: function(){
 		 this.model.on("change", this.render, this)
 	 },
+	//  "<input class='size-selection' type='radio' name='size' value=" + "" + this.getSizeOptions()[0] + ""+ "> " + this.getSizeOptions()[0] + "</input>"
+
 	 render: function() {
 		 this.$el.html(
 			 	"<p id='brand'><strong>" + this.model.get("brand") + "</strong></p>" +
 		 		"<p>" + this.model.get("name") + "</p>" +
 				"<p><strike>" + "REG. $" + this.model.get("price").original + "</strike></p>" +
-				"<p id='sale'>" + "SALE $" + this.model.get("price").sale + "</p>")
+				"<p id='sale'>" + "SALE $" + this.model.get("price").sale + "</p>" + this.model.getSizeInput(this.model.get("size")))
+
 		return this;
 	 }
  });

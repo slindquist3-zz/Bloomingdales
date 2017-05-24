@@ -87,20 +87,10 @@ body {
 		@include xs-screens {
 			width: 280px;
 		}
-
 		@include small-screens {
 			width: 300px;
 		}
 	}
-
-	// input[type="text"] {
-	// 	display: block;
-	// 	width: 300px;
-	// }
-	//
-	// input[name="zipcode"] {
-	//
-	// }
 
 	#shipaddress input {
 		display: block;
