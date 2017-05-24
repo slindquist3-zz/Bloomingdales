@@ -6,6 +6,8 @@ $("#checkout").on('click', function() {
 $('#next').on('click', function(e) {
 	e.preventDefault();
 	$("#selections").hide();
+	$('#purchase').append("<p class='checkout'> Total: $" + selection.getTotal() + "</p>");
+	$('#purchase').append("<p class='checkout'> Your Savings: $" + selection.getSavings() + "</p>");
   $('#shipaddress').show();
 })
 
@@ -16,22 +18,30 @@ $("#back").on('click', function() {
 })
 
 $("#edit").on('click', function() {
+
 	$('#analyticsinfo').hide();
 	$("#shipaddress").show();
 })
 
 $('#finish').on('click', function() {
+	var values = []
+	for (var i = 0; i < $(".ship").length; i++) {
+		values.push($(".ship")[i].value)
+	}
+	if (values.includes("")) {
+		alert("Please fill out the shipping form");
+		return;
+	}
+
 	shipping.set({
 		address: $("#addOne").val() + " " + $("#addTwo").val(),
 		city: $("#city").val(),
 		state: $("#state").val(),
 		zipcode: $("#zipcode").val()
 	});
-	console.log(shipping.attributes)
+
 	$("#shipaddress").hide();
   $('#analyticsinfo').show();
-	$('#purchase').append("<p class='checkout'> Total: $" + selection.getTotal() + "</p>");
-	$('#purchase').append("<p class='checkout'> Your Savings: $" + selection.getSavings() + "</p>");
 })
 
 $(".size-selection").on("change", function() {
