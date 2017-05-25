@@ -1,4 +1,16 @@
+//creates a selection model with default values for user to change through events
 var Selection = Backbone.Model.extend({
+  validate: function(attrs) {
+    if (attrs.quantity < 1) {
+      return "All products must have a quantity value of at least one."
+    }
+    if (!attrs.size) {
+      return "All products must have at least one size listed."
+    }
+    if (!attrs.color) {
+      return "All products must have at least one color listed."
+    }
+  },
   defaults: {
     quantity: 1,
     size: $(".size-selection")[0].value,

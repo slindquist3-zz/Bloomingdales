@@ -1,3 +1,4 @@
+//renders shipping info that user populated in shipping model instance 
 var ShippingView = Backbone.View.extend({
   tagName: "div",
   initialize: function(){
@@ -6,7 +7,8 @@ var ShippingView = Backbone.View.extend({
   render: function() {
     this.$el.html(
        "<p>" + this.model.get("address") + "</p>" +
-       "<p>" + this.model.get("city") + ", " + this.model.get("state") + "</p>" +
+       "<p>" + this.model.get("city") + ", "
+             + this.model.get("state") + "</p>" +
        "<p>" + this.model.get("zipcode") + "</p>");
     return this;
   }

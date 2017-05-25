@@ -1,3 +1,4 @@
+//provides a default image, allows image to change if user changes selection model
 var SelectionView = Backbone.View.extend({
  initialize: function(){
   this.model.on("change", this.render, this)

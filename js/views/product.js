@@ -1,3 +1,4 @@
+//renders product attributes with defaults set in model for size and color
 var ProductView = Backbone.View.extend({
  tagName: "div",
  initialize: function(){
