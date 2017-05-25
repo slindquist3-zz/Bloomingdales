@@ -31,7 +31,7 @@ body {
 
 		&:hover {
     background-color: darken(white, 10%)
-  	}
+		}
 	}
 
 
@@ -42,17 +42,24 @@ body {
 	#dress {
 
 		@include xxs-screens {
-			width: 100px;
+			width: 20%;
 		}
 
 		@include xs-screens {
-			width: 150px;
+			width: 55%;
 		}
 
 		@include small-screens {
-			width: 300px;
+			width: 60%;
 		}
 
+		@include medium-screens {
+			width: 80%;
+		}
+
+		@include large-screens {
+			width: 90%;
+		}
 
 	}
 
@@ -60,9 +67,9 @@ body {
 		color: #D90EAC;
 	}
 
-	#image-view {
-		margin-bottom: 20px;
-	}
+	// #image-view {
+	// 	margin-bottom: 20px;
+	// }
 
 	#brand {
   color: black;
@@ -103,6 +110,7 @@ body {
 	}
 
 	#logo {
+		padding-top: 20px;
 		width: 400px;
 
 		@include xxs-screens {
@@ -118,6 +126,7 @@ body {
 
 	label {
 		display: block;
+		margin-top: 5px;
 		margin-bottom: 2px;
 	}
 
@@ -145,6 +154,19 @@ body {
 		margin: 5px;
 		width: 140px;
 		display: inline;
+	}
+
+	h1 {
+		margin-bottom: 30px;
+		font-size: 40;
+
+		@include xs-screens {
+			font-size: 24px;
+		}
+
+		@include small-screens {
+			font-size: 24px;
+		}
 	}
 
 

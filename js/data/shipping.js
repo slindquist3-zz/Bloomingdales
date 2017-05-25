@@ -1,0 +1,1 @@
+var shipping = new Shipping();
