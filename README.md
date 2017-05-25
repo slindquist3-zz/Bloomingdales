@@ -3,10 +3,14 @@ A code challenge for Bloomingdales
 
 ## About
 
-## Stack
+## Tech
+  * Backbone.js
+  * jQuery
+  * Bootstrap
+  * SCSS
 
 ## UI Design Choices
 
 ## What I'm proud of
 
-## What I'd like to continue improving
+## What I'd improve
