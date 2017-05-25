@@ -229,6 +229,9 @@ $("#add").on("click", function(){
 })
 
 $("#delete").on("click", function(){
+	if (selection.get("quantity") <= 1 ) {
+		return;
+	}
 	selection.set("quantity", selection.get("quantity") - 1)
 	$("#quantity-selection").attr("value", selection.get("quantity"))
 
