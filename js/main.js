@@ -143,7 +143,6 @@ var Product = Backbone.Model.extend({
 			  "<p>" + this.model.get("address") + "</p>" +
 		 		"<p>" + this.model.get("city") + ", " + this.model.get("state") + "</p>" +
 		 		"<p>" + this.model.get("zipcode") + "</p>");
-
 		 return this;
 	 }
  })
@@ -156,7 +155,7 @@ var Product = Backbone.Model.extend({
 	 alert("Thanks for choosing Bloomingdale's!");
  });
 
- $('#next').on('click', function(e) {
+ $('#next').on('click touchstart', function(e) {
 	 e.preventDefault();
 	 $("#selections").hide();
 	 $('#purchase').append("<h4 class='checkout'> Total: $" + selection.getTotal() + "</h4>");
