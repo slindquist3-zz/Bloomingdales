@@ -18,5 +18,3 @@ var Selection = Backbone.Model.extend({
     return (this.getQuantity() * product.get("price").original) - this.getTotal();
   }
 });
-
-var selection = new Selection();
