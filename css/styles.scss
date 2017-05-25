@@ -92,6 +92,11 @@ body {
 		}
 	}
 
+	label {
+		display: block;
+		margin-bottom: 2px;
+	}
+
 	#shipaddress input {
 		display: block;
 		width: 300px;

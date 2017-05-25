@@ -28,21 +28,34 @@ var Product = Backbone.Model.extend({
 				string += "<input class='size-selection' type='radio' name='size' value=" + array[i] + "> " + array[i] + "</input>" + " ";
 				i++;
 			}
-			debugger
 			return label + string;
-
- 	// 	 for (var i = 0; i < array.length; i++) {
- 	// 		 return "<input class='size-selection' type='radio' name='size' value=" + "" + array[i] + ""+ "> " + array[i] + "</input>"
  	},
+		getColorInput: function(array) {
+			var label = "<label>Color:</label><br>"
+			var string = ""
+			var i = 0;
+			while (i < array.length) {
+				string += "<input class='color-selection' type='radio' name='color' value=" + array[i] + "> " + array[i] + "</input>" + " ";
+				i++;
+			}
+			return label + string;
+		},
   	initialize: function() {
     	console.log("A new product has been created")
-    }
+    },
+		getColorArray: function() {
+			var colors = []
+		  var nestedColor = Object.keys(product.attributes.color);
+		  for (var i = 0; i < nestedColor.length; i++) {
+		 	 colors.push(Object.keys(product.attributes.color[i])[0])
+		  }
+			return colors;
+		}
   });
 
  var product = new Product({
 	 brand: "Sunset & Spring",
 	 name: "High/Low Maxi Dress",
-	 //this image value should actually point to an array
 	 price: {
 		 original: 195,
 		 sale: 145
@@ -66,7 +79,8 @@ var Product = Backbone.Model.extend({
 			 "<p>" + this.model.get("name") + "</p>" +
 			 "<p><strike>" + "REG. $" + this.model.get("price").original + "</strike></p>" +
 			 "<p id='sale'>" + "SALE $" + this.model.get("price").sale + "</p>" +
-			 this.model.getSizeInput(this.model.get("size")))
+			 this.model.getSizeInput(this.model.get("size")) +
+		 	 this.model.getColorInput(this.model.getColorArray()))
 
 	 return this;
 	}
