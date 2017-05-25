@@ -1,7 +1,4 @@
 
-
-// ---------  MODELS -------------
-
 var Product = Backbone.Model.extend({
 		validate: function(attrs) {
 			if(!attrs.brand) {
@@ -89,6 +86,7 @@ var Product = Backbone.Model.extend({
  var productView = new ProductView({ el: "#product-details", model: product});
  productView.render();
 
+
  var Selection = Backbone.Model.extend({
 	 defaults: {
 		 quantity: 1,
@@ -112,25 +110,33 @@ var Product = Backbone.Model.extend({
 
  var selection = new Selection();
 
+ var SelectionView = Backbone.View.extend({
+	initialize: function(){
+	 this.model.on("change", this.render, this)
+ 	},
+ 	render: function() {
+	 this.$el.html(
+			"<img id='mainImage' class='views' src=" + this.model.get("image") + ">");
+	 return this;
+ }
+ })
+
+ var selectionView = new SelectionView({el: "#image-view", model: selection})
+ selectionView.render()
+
+
  var Shipping = Backbone.Model.extend({
 	 initialize: function() {
-		 console.log("Shipping info!")
+		 console.log("Shipping info!");
 	 }
  });
 
  var shipping = new Shipping();
 
-
-
- // ---------  VIEWS -------------
-
-
-
-
  var ShippingView = Backbone.View.extend({
 	 tagName: "div",
 	 initialize: function(){
-		 this.model.on("change", this.render, this)
+		 this.model.on("change", this.render, this);
 	 },
 	 render: function() {
 		 this.$el.html(
@@ -144,68 +150,50 @@ var Product = Backbone.Model.extend({
 
  var shippingView = new ShippingView({ el: "#shipping-info", model: shipping});
  shippingView.render();
- //There should be some way to use one function to populate my models with their attributes, because to do each
- //	one individually will make my code heavy and not very dry.
-
- var SelectionView = Backbone.View.extend({
-	 initialize: function(){
-		this.model.on("change", this.render, this)
-	},
-	render: function() {
-		this.$el.html(
-			 "<img id='mainImage' class='views' src=" + this.model.get("image") + ">");
-		return this;
-	}
- })
-
- var selectionView = new SelectionView({el: "#image-view", model: selection})
- selectionView.render()
 
 
  $("#checkout").on('click', function() {
- 	alert("Thanks for choosing Bloomingdale's!")
- })
+	 alert("Thanks for choosing Bloomingdale's!");
+ });
 
  $('#next').on('click', function(e) {
- 	e.preventDefault();
- 	$("#selections").hide();
- 	$('#purchase').append("<p class='checkout'> Total: $" + selection.getTotal() + "</p>");
- 	$('#purchase').append("<p class='checkout'> Your Savings: $" + selection.getSavings() + "</p>");
+	 e.preventDefault();
+	 $("#selections").hide();
+	 $('#purchase').append("<h4 class='checkout'> Total: $" + selection.getTotal() + "</h4>");
+	 $('#purchase').append("<h4 id='savings' class='checkout'> Your Savings: $" + selection.getSavings() + "</h4>");
    $('#shipaddress').show();
- })
+ });
 
  $("#back").on('click', function() {
- 	$(".checkout").remove()
- 	$("#shipaddress").hide();
- 	$("#selections").show();
- })
+	 $(".checkout").remove();
+	 $("#shipaddress").hide();
+	 $("#selections").show();
+ });
 
  $("#edit").on('click', function() {
-
- 	$('#analyticsinfo').hide();
- 	$("#shipaddress").show();
- })
+	 $('#analyticsinfo').hide();
+	 $("#shipaddress").show();
+ });
 
  $('#finish').on('click', function() {
- 	var values = []
- 	for (var i = 0; i < $(".ship").length; i++) {
- 		values.push($(".ship")[i].value)
- 	}
- 	if (values.includes("")) {
- 		alert("Please fill out the shipping form");
- 		return;
- 	}
+	 var values = []
+	 for (var i = 0; i < $(".ship").length; i++) {
+		 values.push($(".ship")[i].value)
+	 	}
+	 	if (values.includes("")) {
+	 		alert("Please fill out the shipping form");
+	 		return;
+	 	}
+	 	shipping.set({
+	 		address: $("#addOne").val() + " " + $("#addTwo").val(),
+	 		city: $("#city").val(),
+	 		state: $("#state").val(),
+	 		zipcode: $("#zipcode").val()
+	 	});
 
- 	shipping.set({
- 		address: $("#addOne").val() + " " + $("#addTwo").val(),
- 		city: $("#city").val(),
- 		state: $("#state").val(),
- 		zipcode: $("#zipcode").val()
- 	});
-
- 	$("#shipaddress").hide();
+ 		$("#shipaddress").hide();
    $('#analyticsinfo').show();
- })
+ });
 
  $(".size-selection").on("change", function() {
  	selection.set(this.name, this.value);

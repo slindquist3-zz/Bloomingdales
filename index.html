@@ -17,50 +17,42 @@
         </div>
       </div>
       <div class="row">
-
         <div class="col-lg-5 col-md-5 col-md-offset-1 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
           <div id="image-view">
           </div>
         </div>
-
         <div class="col-lg-5 col-md-5 col-md-offset-1 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
           <div id="selections" class="views">
             <h1>Product Details</h1>
-
             <div id="product-details">
             </div>
             <br>
-            <!-- <label>Color:</label>
-            <input class="color-selection" type="radio" name="color" value="Black" checked> Black</input>
-            <input class="color-selection" type="radio" name="color" value="Coral"> Coral</input>
-            <input class="color-selection" type="radio" name="color" value="Blue"> Blue</input>
-            <br> -->
             <label>Quantity</label>
             <input class="quantity-selection" type="number" name="quantity" value="1" min="1" max="5"<br>
             <button id="next" class="forward" value="next">Next</button>
           </div>
 
           <div id="shipaddress" class="views" hidden>
-              <h1>Shipping Address</h1>
-              <label>Address Line 1</label>
-              <input class="ship" type="text" required="required" name="address1" id="addOne"/>
-              <label>Address Line 2</label>
-              <input type="text" name="address2" id="addTwo"/>
-              <label>City</label>
-              <input class="ship" type="text" name="city" id="city"/>
-              <label>State</label>
-              <input class="ship" type="text" name="state" id="state"/>
-              <label>ZipCode</label>
-              <input class="ship" type="number" name="zipcode" id="zipcode"/>
-              <button type="button" id="back" class="backward">Back</button>
-              <button type="submit" id="finish" class="forward">Finish</button>
+            <h1>Shipping Address</h1>
+            <label>Address Line 1</label>
+            <input class="ship" type="text" required="required" name="address1" id="addOne"/>
+            <label>Address Line 2</label>
+            <input type="text" name="address2" id="addTwo"/>
+            <label>City</label>
+            <input class="ship" type="text" name="city" id="city"/>
+            <label>State</label>
+            <input class="ship" type="text" name="state" id="state"/>
+            <label>ZipCode</label>
+            <input class="ship" type="number" name="zipcode" id="zipcode"/>
+            <button type="button" id="back" class="backward">Back</button>              <button type="submit" id="finish" class="forward">Finish</button>
           </div>
+
           <div id="analyticsinfo" class="views" hidden>
             <div id="review">
               <div id="purchase">
                 <h1>Review Purchase</h1>
               </div>
-              <p> Shipping Address</p>
+              <h4 id="shipping-header"> Shipping Address</h4>
               <div id="shipping-info"></div>
             </div>
               <button id="edit" class="backward">Edit Shipping</button>
