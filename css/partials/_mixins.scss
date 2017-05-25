@@ -1,4 +1,8 @@
-
+@mixin xxs-screens() {
+  @media only screen and (min-width: 220px) {
+    @content;
+  }
+}
 
 @mixin xs-screens() {
   @media only screen and (min-width: 320px) {

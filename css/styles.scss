@@ -39,7 +39,9 @@ body {
 		font-size: 16px;
 	}
 
-
+	#dress {
+		width: 420px;
+	}
 
 	#savings {
 		color: #D90EAC;
@@ -61,37 +63,40 @@ body {
 		color: red;
 	}
 
-	#dress {
-		width: 400px;
-	}
-
 	.views {
 		border-radius: 10px;
 		margin-top: 30px;
 		width: 400px;
 
+		@include xxs-screens {
+			width: 200px;
+		}
+
 		@include xs-screens {
-			width: 300px;
+			width: 250px;
 		}
 
 		@include small-screens {
-			width: 380px;
+			width: 400px;
 		}
 
 		@include medium-screens {
-			width: 400px;
+			width: 420px;
 		}
 
 		@include large-screens {
-			width: 400px;
+			width: 420px;
 		}
 	}
 
 	#logo {
 		width: 400px;
 
+		@include xxs-screens {
+			width: 150px;
+		}
 		@include xs-screens {
-			width: 280px;
+			width: 180px;
 		}
 		@include small-screens {
 			width: 300px;
