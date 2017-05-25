@@ -156,6 +156,12 @@ var Product = Backbone.Model.extend({
  });
 
  $('#next').on('click touchstart', function(e) {
+
+	 if ($("#quantity-selection").value < 1 ) {
+		 alert("Please add at least one item");
+		 return;
+	 }
+
 	 e.preventDefault();
 	 $("#selections").hide();
 	 $('#purchase').append("<h4 class='checkout'> Total: $" + selection.getTotal() + "</h4>");
@@ -215,7 +221,7 @@ var Product = Backbone.Model.extend({
  });
 
  $(".quantity-selection").on("change", function() {
- 	selection.set(this.name, this.value);
+ 		selection.set(this.name, this.value);
  });
 
 $(".size-selection")[0].setAttribute("checked", "checked");
@@ -235,3 +241,7 @@ $("#delete").on("click", function(){
 	$("#quantity-selection").attr("value", selection.get("quantity"))
 
 })
+
+$("#quantity-selection").keypress(function (evt) {
+    evt.preventDefault();
+});
