@@ -1,4 +1,4 @@
-//seed data for an example product. 
+// seed data for an example product.
 var product = new Product({
   brand: "Sunset & Spring",
   name: "High/Low Maxi Dress",
