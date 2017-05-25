@@ -221,3 +221,15 @@ var Product = Backbone.Model.extend({
 
 $(".size-selection")[0].setAttribute("checked", "checked");
 $(".color-selection")[0].setAttribute("checked", "checked");
+
+$("#add").on("click", function(){
+	selection.set("quantity", selection.get("quantity") + 1)
+	$("#quantity-selection").attr("value", selection.get("quantity"))
+
+})
+
+$("#delete").on("click", function(){
+	selection.set("quantity", selection.get("quantity") - 1)
+	$("#quantity-selection").attr("value", selection.get("quantity"))
+
+})

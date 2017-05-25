@@ -40,7 +40,20 @@ body {
 	}
 
 	#dress {
-		width: 420px;
+
+		@include xxs-screens {
+			width: 100px;
+		}
+
+		@include xs-screens {
+			width: 150px;
+		}
+
+		@include small-screens {
+			width: 300px;
+		}
+
+
 	}
 
 	#savings {
@@ -73,7 +86,7 @@ body {
 		}
 
 		@include xs-screens {
-			width: 250px;
+			width: 350px;
 		}
 
 		@include small-screens {
@@ -93,7 +106,7 @@ body {
 		width: 400px;
 
 		@include xxs-screens {
-			width: 150px;
+			width: 100px;
 		}
 		@include xs-screens {
 			width: 180px;
@@ -122,5 +135,17 @@ body {
 		width: 300px;
 		border: black solid 1px;
 	}
+
+	#quantity-selection {
+		height: 20px;
+		width: 50px;
+	}
+
+	.quantity {
+		margin: 5px;
+		width: 140px;
+		display: inline;
+	}
+
 
 }

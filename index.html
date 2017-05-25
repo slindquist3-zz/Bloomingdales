@@ -28,7 +28,10 @@
             </div>
             <br>
             <label>Quantity</label>
-            <input class="quantity-selection" type="number" name="quantity" value="1" min="1" max="5"<br>
+            <input class="quantity" id="quantity-selection" type="number" name="quantity" value="1" min="1" max="5" required=""><br>
+            <button id="delete" class="quantity backward">Delete</button>
+            <button id="add" class="quantity forward">Add</button>
+
             <button id="next" class="forward" value="next">Next</button>
           </div>
 
@@ -44,7 +47,8 @@
             <input class="ship" type="text" name="state" id="state"/>
             <label>ZipCode</label>
             <input class="ship" type="number" name="zipcode" id="zipcode"/>
-            <button type="button" id="back" class="backward">Back</button>              <button type="submit" id="finish" class="forward">Finish</button>
+            <button type="button" id="back" class="backward">Back</button>
+            <button type="submit" id="finish" class="forward">Finish</button>
           </div>
 
           <div id="analyticsinfo" class="views" hidden>
