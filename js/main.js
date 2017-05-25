@@ -1,75 +1,4 @@
 
-$("#checkout").on('click', function() {
-	alert("Thanks for choosing Bloomingdale's!")
-})
-
-$('#next').on('click', function(e) {
-	e.preventDefault();
-	$("#selections").hide();
-	$('#purchase').append("<p class='checkout'> Total: $" + selection.getTotal() + "</p>");
-	$('#purchase').append("<p class='checkout'> Your Savings: $" + selection.getSavings() + "</p>");
-  $('#shipaddress').show();
-})
-
-$("#back").on('click', function() {
-	$(".checkout").remove()
-	$("#shipaddress").hide();
-	$("#selections").show();
-})
-
-$("#edit").on('click', function() {
-
-	$('#analyticsinfo').hide();
-	$("#shipaddress").show();
-})
-
-$('#finish').on('click', function() {
-	var values = []
-	for (var i = 0; i < $(".ship").length; i++) {
-		values.push($(".ship")[i].value)
-	}
-	if (values.includes("")) {
-		alert("Please fill out the shipping form");
-		return;
-	}
-
-	shipping.set({
-		address: $("#addOne").val() + " " + $("#addTwo").val(),
-		city: $("#city").val(),
-		state: $("#state").val(),
-		zipcode: $("#zipcode").val()
-	});
-
-	$("#shipaddress").hide();
-  $('#analyticsinfo').show();
-})
-
-$(".size-selection").on("change", function() {
-	selection.set(this.name, this.value);
-})
-
-$(".color-selection").on("change", function() {
-	selection.set("color", "to be set");
-	});
-
-$(".color-selection").on("change", function() {
-	selection.set(this.name, this.value);
-	var arr = Object.values(product.get("color"))
-	var url = []
-		for (var i = 0; i < arr.length; i++) {
-			if (Object.keys(arr[i])[0] === this.value) {
-				url.push(Object.values(arr[i])[0])
-			}
-		}
-	selection.set("image", url[0]);
-	console.log(selection.get("color"))
-	console.log(selection.get("image"))
-
-});
-
-$(".quantity-selection").on("change", function() {
-	selection.set(this.name, this.value);
-});
 
 // ---------  MODELS -------------
 
@@ -92,6 +21,7 @@ var Product = Backbone.Model.extend({
 			}
 		},
 		getSizeInput: function(array) {
+			var label = "<label>Size:</label><br>"
 			var string = ""
 			var i = 0;
 			while (i < array.length) {
@@ -99,7 +29,7 @@ var Product = Backbone.Model.extend({
 				i++;
 			}
 			debugger
-			return string;
+			return label + string;
 
  	// 	 for (var i = 0; i < array.length; i++) {
  	// 		 return "<input class='size-selection' type='radio' name='size' value=" + "" + array[i] + ""+ "> " + array[i] + "</input>"
@@ -124,6 +54,26 @@ var Product = Backbone.Model.extend({
 	 ],
 	 size: ["2S", "3M", "4L"]
  });
+
+ var ProductView = Backbone.View.extend({
+	tagName: "div",
+	initialize: function(){
+		this.model.on("change", this.render, this)
+	},
+	render: function() {
+		this.$el.html(
+			 "<p id='brand'><strong>" + this.model.get("brand") + "</strong></p>" +
+			 "<p>" + this.model.get("name") + "</p>" +
+			 "<p><strike>" + "REG. $" + this.model.get("price").original + "</strike></p>" +
+			 "<p id='sale'>" + "SALE $" + this.model.get("price").sale + "</p>" +
+			 this.model.getSizeInput(this.model.get("size")))
+
+	 return this;
+	}
+ });
+
+ var productView = new ProductView({ el: "#product-details", model: product});
+ productView.render();
 
  var Selection = Backbone.Model.extend({
 	 defaults: {
@@ -160,26 +110,7 @@ var Product = Backbone.Model.extend({
 
  // ---------  VIEWS -------------
 
- var ProductView = Backbone.View.extend({
-	 tagName: "div",
-	 initialize: function(){
-		 this.model.on("change", this.render, this)
-	 },
-	//  "<input class='size-selection' type='radio' name='size' value=" + "" + this.getSizeOptions()[0] + ""+ "> " + this.getSizeOptions()[0] + "</input>"
 
-	 render: function() {
-		 this.$el.html(
-			 	"<p id='brand'><strong>" + this.model.get("brand") + "</strong></p>" +
-		 		"<p>" + this.model.get("name") + "</p>" +
-				"<p><strike>" + "REG. $" + this.model.get("price").original + "</strike></p>" +
-				"<p id='sale'>" + "SALE $" + this.model.get("price").sale + "</p>" + this.model.getSizeInput(this.model.get("size")))
-
-		return this;
-	 }
- });
-
- var productView = new ProductView({ el: "#product-details", model: product});
- productView.render();
 
 
  var ShippingView = Backbone.View.extend({
@@ -215,3 +146,76 @@ var Product = Backbone.Model.extend({
 
  var selectionView = new SelectionView({el: "#image-view", model: selection})
  selectionView.render()
+
+
+ $("#checkout").on('click', function() {
+ 	alert("Thanks for choosing Bloomingdale's!")
+ })
+
+ $('#next').on('click', function(e) {
+ 	e.preventDefault();
+ 	$("#selections").hide();
+ 	$('#purchase').append("<p class='checkout'> Total: $" + selection.getTotal() + "</p>");
+ 	$('#purchase').append("<p class='checkout'> Your Savings: $" + selection.getSavings() + "</p>");
+   $('#shipaddress').show();
+ })
+
+ $("#back").on('click', function() {
+ 	$(".checkout").remove()
+ 	$("#shipaddress").hide();
+ 	$("#selections").show();
+ })
+
+ $("#edit").on('click', function() {
+
+ 	$('#analyticsinfo').hide();
+ 	$("#shipaddress").show();
+ })
+
+ $('#finish').on('click', function() {
+ 	var values = []
+ 	for (var i = 0; i < $(".ship").length; i++) {
+ 		values.push($(".ship")[i].value)
+ 	}
+ 	if (values.includes("")) {
+ 		alert("Please fill out the shipping form");
+ 		return;
+ 	}
+
+ 	shipping.set({
+ 		address: $("#addOne").val() + " " + $("#addTwo").val(),
+ 		city: $("#city").val(),
+ 		state: $("#state").val(),
+ 		zipcode: $("#zipcode").val()
+ 	});
+
+ 	$("#shipaddress").hide();
+   $('#analyticsinfo').show();
+ })
+
+ $(".size-selection").on("change", function() {
+ 	selection.set(this.name, this.value);
+ 	console.log(selection.get("size"))
+ })
+
+ $(".color-selection").on("change", function() {
+ 	selection.set(this.name, this.value);
+ 	var arr = Object.values(product.get("color"))
+ 	var url = []
+ 		for (var i = 0; i < arr.length; i++) {
+ 			if (Object.keys(arr[i])[0] === this.value) {
+ 				url.push(Object.values(arr[i])[0])
+ 			}
+ 		}
+ 	selection.set("image", url[0]);
+ 	console.log(selection.get("color"))
+ 	console.log(selection.get("image"))
+
+ });
+
+ $(".quantity-selection").on("change", function() {
+ 	selection.set(this.name, this.value);
+ });
+
+$(".size-selection")[0].setAttribute("checked", "checked");
+$(".color-selection")[0].setAttribute("checked", "checked");
