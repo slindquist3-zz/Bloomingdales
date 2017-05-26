@@ -1,5 +1,4 @@
-# Bloomingdale's Product Selection Demo
-*A code challenge for Bloomingdales*
+Product Selection Demo
 
 ## About
 This is a product details page. The user has selected a dress to buy, which launches a page with the following details:
