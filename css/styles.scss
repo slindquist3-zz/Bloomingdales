@@ -57,6 +57,21 @@ body {
 		}
 	}
 
+	.size-selection {
+		padding-bottom: 200px;
+	}
+
+	#quantity-selection {
+		height: 20px;
+		width: 50px;
+	}
+
+	.quantity {
+		margin: 5px;
+		width: 115px;
+		display: inline;
+	}
+
 	#dress {
 
 		@include xxs-screens {
@@ -78,20 +93,15 @@ body {
 		@include large-screens {
 			width: 90%;
 		}
-
-	}
-
-	#savings {
-		color: #D90EAC;
 	}
 
 	#brand {
   color: black;
 
-  &:hover {
-    color:  #D90EAC;
-  }
-}
+	  &:hover {
+	    color:  #D90EAC;
+	  }
+	}
 
 	#sale {
 		color: red;
@@ -149,22 +159,11 @@ body {
 
 	#shipping-info {
 		padding: 10px;
-		width: 300px;
+		width: 250px;
 		border: black solid 1px;
 	}
 
-	.size-selection {
-		padding-bottom: 200px;
-	}
-
-	#quantity-selection {
-		height: 20px;
-		width: 50px;
-	}
-
-	.quantity {
-		margin: 5px;
-		width: 115px;
-		display: inline;
+	#savings {
+		color: #D90EAC;
 	}
 }

@@ -17,7 +17,7 @@ After selecting attributes, the customer enters a shipping address. Then the use
   * jQuery
   * Bootstrap
   * SCSS
-  * Jasmine Karma
+  * Jasmine
 
 ## UI Design Choices
 For a selection method, I decided to stick with radio buttons for two reasons:
@@ -33,7 +33,10 @@ I added inverse animations to each type of button so that upon hovering over whi
 ## What I'm proud of
 Some of the features that were most challenging about this project are actually what I enjoyed the most. For instance, my goal was to write code that could be reusable for any product model on sale. Creating the logic of how to have different color choices point to image urls and then access those values based on user interactions took me a while to figure out, especially given that different products could have a different number of color options or sizes.
 
-With my first foray into programming with Backbone.js, I'm proud of creating reusable code that could in theory be used to handle a large collection of product data.
+With my first foray into programming with Backbone.js, I'm proud of creating reusable code that could in theory be used to handle a larger collection of product data.
+
+I came to really enjoy programming in Backbone after spending some time learning it. Coming from a React background, Backbone syntax and organization feels like it has less overhead before it starts to feel intuitive.
+
 
 ## What I'd improve
-One thing I'd like to work with are how my radio buttons are rendered. I like how on Bloomingdales.com the selection options for colors offer swatches, and while I've done some research on how to manipulate radio inputs, I'd want to study how to truly customize them. I'd also take more time to write tests for each functionality of my project--though this was my first experience with Jasmine, it works similarly to RSPEC, and I enjoyed how it straightforward it was to install and begin working. 
+One thing I'd like to work with is how my radio buttons are rendered. I like how on Bloomingdales.com the selection options offer color swatches, and while I've done some research on how to manipulate radio inputs, I'd want to study how to truly customize them. I'd also take more time to write tests for each functionality of my project.
