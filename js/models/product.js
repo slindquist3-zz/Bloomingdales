@@ -7,9 +7,6 @@ var Product = Backbone.Model.extend({
 			if(!attrs.name) {
 				return "Every product needs a name.";
 			}
-			if(attrs.price.original === "" && attrs.price.sale === "") {
-				return "Every product needs at least one price.";
-			}
 			if(attrs.price.original <= 0 || attrs.price.sale <= 0) {
 				return "Every product should have a value greater than zero.";
 			}
