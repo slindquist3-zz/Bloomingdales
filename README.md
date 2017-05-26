@@ -32,9 +32,7 @@ I added inverse animations to each type of button so that upon hovering over whi
 ## What I'm proud of
 Some of the features that were most challenging about this project are actually what I enjoyed the most. One challenge was how to structure the models and views so they could be reusable for any product on sale. Creating the logic of how to have different color choices linked to image urls and then be able to access those values based on user interactions took some time, especially given that different products could have a different number of color options or sizes.
 
-With my first foray into programming with Backbone.js, I'm proud of creating reusable code that could in theory be used to handle a larger collection of product data.
-
-I came to really enjoy programming in Backbone after spending some time learning it. Coming from a React background, Backbone syntax and organization feels like it has less overhead before it starts to feel intuitive.
+I came to really enjoy programming in Backbone after spending some time learning it. I'm proud of creating reusable code that could in theory be used to handle a larger collection of product data. Coming from a React background, Backbone syntax and organization feels like it has less overhead before it starts to feel intuitive.
 
 
 ## What I'd improve
