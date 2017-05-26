@@ -1,4 +1,4 @@
-Product Selection Demo
+#Product Selection Demo
 
 ## About
 This is a product details page. The user has selected a dress to buy, which launches a page with the following details:
