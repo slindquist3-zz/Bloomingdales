@@ -38,4 +38,4 @@ I came to really enjoy programming in Backbone after spending some time learning
 
 
 ## What I'd improve
-One thing I'd like to work with is how my radio buttons are rendered. I like how on Bloomingdales.com the selection options offer color swatches, and while I've done some research on how to manipulate radio inputs, I'd want to study how to truly customize them. 
+One thing I'd like to work with in the future is how my radio buttons are rendered. I like how on Bloomingdales.com the selection options offer color swatches, and while I've done some research on how to manipulate radio inputs, I'd want to study how to truly customize them.
