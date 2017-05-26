@@ -1,7 +1,9 @@
 
 @import "partials/mixins";
 
-body {
+html, body {
+	max-width: 100%;
+	 overflow-x: hidden;
 
 	button {
 		width: 250px;
@@ -166,4 +168,19 @@ body {
 	#savings {
 		color: #D90EAC;
 	}
+
+	#black-header {
+		background-color: black;
+		position: absolute;
+		height: 10px;
+		margin-left: -150px !important;
+		margin-right: 0 !important;
+		width: 2000px !important;
+		overflow-x: hidden;
+		display: inline;
+		box-sizing: border-box;
+
+	}
+
+
 }
