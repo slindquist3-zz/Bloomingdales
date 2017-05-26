@@ -4,7 +4,7 @@
 body {
 
 	button {
-		width: 300px;
+		width: 250px;
 		text-transform: uppercase;
 		display: block;
 		border: 1px solid black;
@@ -14,6 +14,29 @@ body {
 		font-weight: 500;
 		letter-spacing: 2px;
 		font-family: helvetica;
+	}
+
+	h1 {
+		margin-bottom: 30px;
+		font-size: 40;
+
+		@include xs-screens {
+			font-size: 24px;
+		}
+
+		@include small-screens {
+			font-size: 24px;
+		}
+	}
+
+	p {
+		font-size: 16px;
+	}
+
+	label {
+		display: block;
+		margin-top: 5px;
+		margin-bottom: 2px;
 	}
 
 	.forward {
@@ -32,11 +55,6 @@ body {
 		&:hover {
     background-color: darken(white, 10%)
 		}
-	}
-
-
-	p {
-		font-size: 16px;
 	}
 
 	#dress {
@@ -66,10 +84,6 @@ body {
 	#savings {
 		color: #D90EAC;
 	}
-
-	// #image-view {
-	// 	margin-bottom: 20px;
-	// }
 
 	#brand {
   color: black;
@@ -124,15 +138,9 @@ body {
 		}
 	}
 
-	label {
-		display: block;
-		margin-top: 5px;
-		margin-bottom: 2px;
-	}
-
 	#shipaddress input {
 		display: block;
-		width: 300px;
+		width: 250px;
 	}
 
 	#shipping-header {
@@ -145,6 +153,10 @@ body {
 		border: black solid 1px;
 	}
 
+	.size-selection {
+		padding-bottom: 200px;
+	}
+
 	#quantity-selection {
 		height: 20px;
 		width: 50px;
@@ -152,22 +164,7 @@ body {
 
 	.quantity {
 		margin: 5px;
-		width: 140px;
+		width: 115px;
 		display: inline;
 	}
-
-	h1 {
-		margin-bottom: 30px;
-		font-size: 40;
-
-		@include xs-screens {
-			font-size: 24px;
-		}
-
-		@include small-screens {
-			font-size: 24px;
-		}
-	}
-
-
 }
