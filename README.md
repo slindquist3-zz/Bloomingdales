@@ -30,7 +30,7 @@ Following this color scheme, I chose to emphasize the button choices that move t
 I added inverse animations to each type of button so that upon hovering over white buttons the background color will darken, while black button backgrounds will lighten.
 
 ## What I'm proud of
-Some of the features that were most challenging about this project are actually what I enjoyed the most. For instance, my goal was to write code that could be reusable for any product model on sale. Creating the logic of how to have different color choices linked to image urls and then be able access those values based on user interactions took me a while to figure out, especially given that different products could have a different number of color options or sizes.
+Some of the features that were most challenging about this project are actually what I enjoyed the most. One challenge was how to structure the models and views so they could be reusable for any product on sale. Creating the logic of how to have different color choices linked to image urls and then be able to access those values based on user interactions took some time, especially given that different products could have a different number of color options or sizes.
 
 With my first foray into programming with Backbone.js, I'm proud of creating reusable code that could in theory be used to handle a larger collection of product data.
 
