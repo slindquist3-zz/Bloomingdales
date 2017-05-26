@@ -36,4 +36,4 @@ Some of the features that were most challenging about this project are actually 
 With my first foray into programming with Backbone.js, I'm proud of creating reusable code that could in theory be used to handle a large collection of product data.
 
 ## What I'd improve
-Given another week, one thing I'd like to work with are how my radio buttons are rendered. I like how on Bloomingdales.com the selection options for colors offer swatches, and while I've done some research on how to manipulate radio inputs, I'd want to study how to truly customize them.
+One thing I'd like to work with are how my radio buttons are rendered. I like how on Bloomingdales.com the selection options for colors offer swatches, and while I've done some research on how to manipulate radio inputs, I'd want to study how to truly customize them. I'd also take more time to write tests for each functionality of my project--though this was my first experience with Jasmine, it works similarly to RSPEC, and I enjoyed how it straightforward it was to install and begin working. 

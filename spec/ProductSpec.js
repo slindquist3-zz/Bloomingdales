@@ -40,15 +40,16 @@ describe("Product", function(){
     expect(product.isValid()).toBeFalsy();
   });
 
-  it("getSizeInput should include the correct sizes", function() {
-    product.attributes.price.original = 0;
-    product.attributes.price.sale = 0;
-    expect(product.isValid()).toBeFalsy();
-  })
-
   it("getColorInput method should return a string", function() {
     var string = product.getColorInput([1, 2, 3])
     expect(typeof string).toEqual("string");
+  });
+
+  it("getSizeInput should include the correct sizes", function() {
+    var result = product.getSizeInput(["2S", "4M", "6L"])
+    expect(result.includes("2S")).toEqual(true);
+    expect(result.includes("4M")).toEqual(true);
+    expect(result.includes("6L")).toEqual(true);
   });
 
 });
