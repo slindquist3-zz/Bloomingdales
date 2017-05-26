@@ -31,7 +31,7 @@ Following this color scheme, I chose to emphasize the button choices that move t
 I added inverse animations to each type of button so that upon hovering over white buttons the background color will darken, while black button backgrounds will lighten.
 
 ## What I'm proud of
-Some of the features that were most challenging about this project are actually what I enjoyed the most. For instance, my goal was to write code that could be reusable for any product model on sale. Creating the logic of how to have different color choices point to image urls and then access those values based on user interactions took me a while to figure out, especially given that different products could have a different number of color options or sizes.
+Some of the features that were most challenging about this project are actually what I enjoyed the most. For instance, my goal was to write code that could be reusable for any product model on sale. Creating the logic of how to have different color choices linked to image urls and then be able access those values based on user interactions took me a while to figure out, especially given that different products could have a different number of color options or sizes.
 
 With my first foray into programming with Backbone.js, I'm proud of creating reusable code that could in theory be used to handle a larger collection of product data.
 
@@ -39,4 +39,4 @@ I came to really enjoy programming in Backbone after spending some time learning
 
 
 ## What I'd improve
-One thing I'd like to work with is how my radio buttons are rendered. I like how on Bloomingdales.com the selection options offer color swatches, and while I've done some research on how to manipulate radio inputs, I'd want to study how to truly customize them. I'd also take more time to write tests for each functionality of my project.
+One thing I'd like to work with is how my radio buttons are rendered. I like how on Bloomingdales.com the selection options offer color swatches, and while I've done some research on how to manipulate radio inputs, I'd want to study how to truly customize them. I'd also take time to write tests for each functionality of my project.
