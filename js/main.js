@@ -1,4 +1,4 @@
-//ensures first options and selected upon load
+//ensures first options are selected upon load
 $(".size-selection")[0].setAttribute("checked", "checked");
 $(".color-selection")[0].setAttribute("checked", "checked");
 
@@ -69,7 +69,7 @@ $(".color-selection").on("change", function() {
 	 $('#analyticsinfo').hide();
 	 $("#shipaddress").show();
  });
- 
+
 //prompts user to fill out the required sections of the shipping information
 	//if a section has not been altered, with the exception of second address line
  $('#finish').on('click', function() {
