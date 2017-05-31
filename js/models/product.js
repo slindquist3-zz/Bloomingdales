@@ -29,6 +29,7 @@ var Product = Backbone.Model.extend({
     getColorArray: function() {
       var colors = []
       var nestedColor = Object.keys(product.attributes.color);
+			//returns a nested array with color names as first and only index values
       for (var i = 0; i < nestedColor.length; i++) {
        colors.push(Object.keys(product.attributes.color[i])[0])
       }
